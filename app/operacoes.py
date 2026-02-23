@@ -17,6 +17,6 @@ def dividir(*numeros):
     res = numeros[0]
     for n in numeros[1:]:
         if n == 0:
-            return "ERRO! Divisão por zero!"
+            return "\033[31mERRO! Divisão por zero!\033[m"
         res /= n
     return res

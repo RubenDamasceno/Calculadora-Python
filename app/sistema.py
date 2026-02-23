@@ -1,9 +1,11 @@
 from time import sleep
 from app.operacoes import *
-from app.utilidades import leiaInt, menu
+from app.utilidades import *
 
-
-
+#arq = 'historico.txt'
+#if existeArquivo(arq) == False:
+#    criarArquivo(arq)
+cabecalho(f'{'SUA CALCULADORA EM PYTHON':^40}')
 def iniciar():
     while True:
         resp = menu(['Somar', 'Subtrair', 'Multiplicar', 'Dividir', 'Sair'])
@@ -13,12 +15,14 @@ def iniciar():
                 try:
                     lista = [float(n) for n in numeros.split()]
                     if len(lista) == 0:
-                        print('ERRO! Você precisa digitar ao menos um número!')
+                        print('\033[31mERRO! Você precisa digitar ao menos um número!\033[m')
                     else:
-                        print(f'O resultado da Soma vale: {soma(*lista)}')
+                        print('-' * 40)
+                        print(f'\033[32mO resultado da Soma vale: {soma(*lista)}\033[m')
+                        print('-' * 40)
                         break
                 except ValueError:
-                    print('ERRO! Por favor, digite apenas números separados por espaços!')
+                    print('\033[31mERRO! Por favor, digite apenas números separados por espaços!\033[m')
 
         elif resp == 2:
             while True:
@@ -26,12 +30,14 @@ def iniciar():
                 try:
                     lista = [float(n) for n in numeros.split()]
                     if len(lista) == 0:
-                        print('ERRO! Você precisa digitar ao menos um número!')
+                        print('\033[31mERRO! Você precisa digitar ao menos um número!033[m')
                     else:
-                        print(f'O resultado da Subtração vale: {subtracao(*lista)}')
+                        print('-' * 40)
+                        print(f'\033[32mO resultado da Subtração vale: {subtracao(*lista)}\033[m')
+                        print('-' * 40)
                         break
                 except ValueError:
-                    print('ERRO! por favor, digite apenas números separados por espaços!')
+                    print('\033[31mERRO! por favor, digite apenas números separados por espaços!\033[m')
 
         elif resp == 3:
             while True:
@@ -39,12 +45,14 @@ def iniciar():
                 try:
                     lista = [float(n) for n in numeros.split()]
                     if len(lista) == 0:
-                        print('ERRO! Você precisa digitar ao menos um número!')
+                        print('\033[31mERRO! Você precisa digitar ao menos um número!\033[m')
                     else:
-                        print(f'O resultado da Multiplicação vale: {multiplicar(*lista)}')
+                        print('-' * 40)
+                        print(f'\033[32mO resultado da Multiplicação vale: {multiplicar(*lista)}\033[m')
+                        print('-' * 40)
                         break
                 except ValueError:
-                    print('ERRO! Por favor, digite apenas números separados por espaços!')
+                    print('\033[31mERRO! Por favor, digite apenas números separados por espaços!\033[m')
 
         elif resp == 4:
             while True:
@@ -52,26 +60,29 @@ def iniciar():
                 try:
                     lista = [float(n) for n in numeros.split()]
                     if len(lista) == 0:
-                        print('ERRO! Você precisa digitar ao menos um número!')
+                        print('\033[31mERRO! Você precisa digitar ao menos um número!\033[m')
                     else:
                         resultado = dividir(*lista)
                         if isinstance(resultado, str):
                             print(f'{resultado}')
                         else:
-                            print(f'O resultado da Divisão vale: {resultado:.2}')
+                            print('-' *40)
+                            print(f'\033[32mO resultado da Divisão vale: {resultado:.2}\033[m')
+                            print('-' *40)
                             break
                 except ValueError:
-                    print('ERRO! Por favor, digite apenas números separados por espaços!')
+                    print('\033[31mERRO! Por favor, digite apenas números separados por espaços!\033[m')
 
         if resp == 5:
+            print('-' *25)
             print('Finalizando', end='',flush=True)
             for _ in range(3):
                 sleep(0.5)
                 print('.', end='',flush=True)
             print()
             print('>>> Volte sempre! <<<')
+            print('-' * 25)
             break
-
 
 
 
